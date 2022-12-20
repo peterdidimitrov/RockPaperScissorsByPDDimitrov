@@ -10,4 +10,5 @@ Rules:
 1. Rock wins against scissors; 
 2. Paper wins against rock; 
 3. Scissors wins against paper. 
+
 If both players throw the same hand signal, it is considered a tie, and play resumes until there is a clear winner.
