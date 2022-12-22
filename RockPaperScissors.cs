@@ -6,19 +6,26 @@ namespace RockPaperScissirs
     {
         static void Main(string[] args)
         {
+            //Initialising Rock, Paper and Scissors
             const string Rock = "Rock";
             const string Paper = "Paper";
             const string Scissors = "Scissors";
 
+            //the user can enter name
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please type your name, then press ENTER:");
 
-            string name = Console.ReadLine();
+            string userName = Console.ReadLine();
 
+            //the Uuser is choosing between Rock, Paper or Scissors
             Console.Write("Choose [r]ock, [p]aper or [s]cissors, then press ENTER: ");
 
+            //Initialising player's score and computer's score
             int playerScore = 0;
             int computerScore = 0;
+
+            //Initializing counter, which helps for increasing users chance to win
+            int counter = 0;
 
             while (true)
             {
@@ -40,14 +47,31 @@ namespace RockPaperScissirs
                 }
                 else
                 {
+                    //If the user enters invalid move program displays special message
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid Input. Try Again...");
                     Console.ResetColor();
                     continue;
                 }
 
+                //Increasing counter every after user enters correct move
+                counter++;
+
+                //Initializing "random" to shuffle computer's choice
                 Random random = new Random();
-                int computerRandomNumber = random.Next(1, 4);
+                int computerRandomNumber = random.Next();
+
+                //Increasing user's chance to win by remove the third case: Scissors every second round
+                if (counter % 2 == 0)
+                {
+                    computerRandomNumber = random.Next(1, 3);
+                }
+                else
+                {
+                    computerRandomNumber = random.Next(1, 4);
+                }
+
+                //Initializing computer's move
                 string computerMove = string.Empty;
 
                 switch (computerRandomNumber)
@@ -63,10 +87,13 @@ namespace RockPaperScissirs
                         break;
                 }
 
+                //Displaying computer's move
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"This computer chose {computerMove}.");
                 Console.ResetColor();
 
+                //Defining conditions of win or lose and increasing player's or computer's score depending of ending of round
+                //Displaying message for every possible ending of game with different colour
                 if ((playerMove == Rock && computerMove == Scissors) ||
                     (playerMove == Paper && computerMove == Rock) ||
                     (playerMove == Scissors && computerMove == Paper))
@@ -93,9 +120,12 @@ namespace RockPaperScissirs
                 }
 
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"{name}: {playerScore} Computer: {computerScore}");
 
-                Console.WriteLine("Type [yes] to Play Again or [no] to quit: ");
+                //Displaying current result
+                Console.WriteLine($"{userName}: {playerScore} Computer: {computerScore}");
+
+                //The user has to decide to play again or to quit the game
+                Console.WriteLine("Type [yes] to Play Again or [no] to quit, then press ENTER: ");
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
 
@@ -103,6 +133,7 @@ namespace RockPaperScissirs
 
                 Console.ForegroundColor = ConsoleColor.White;
 
+                //If user choose to continue the game the program restarts and displays message, else stops and again displays message
                 if (userChoice == "yes" || userChoice == "Yes" || userChoice == "Y" || userChoice == "y")
                 {
                     Console.Write("Choose [r]ock, [p]aper or [s]cissors, then press ENTER: ");
