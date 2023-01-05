@@ -11,20 +11,20 @@ namespace RockPaperScissirs
             const string Paper = "Paper";
             const string Scissors = "Scissors";
 
-            //the user can enter name
+            //The user can enter a name
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please type your name, then press ENTER:");
 
             string userName = Console.ReadLine();
 
-            //the Uuser is choosing between Rock, Paper or Scissors
+            //the user is choosing between Rock, Paper or Scissors
             Console.Write("Choose [r]ock, [p]aper or [s]cissors, then press ENTER: ");
 
             //Initialising player's score and computer's score
             int playerScore = 0;
             int computerScore = 0;
 
-            //Initializing counter, which helps for increasing users chance to win
+            //Initializing counter, which helps for increasing user's chance to win
             int counter = 0;
 
             while (true)
@@ -47,21 +47,21 @@ namespace RockPaperScissirs
                 }
                 else
                 {
-                    //If the user enters invalid move program displays special message
+                    //If the user enters invalid move, the program displays special message
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid Input. Try Again...");
                     Console.ResetColor();
                     continue;
                 }
 
-                //Increasing counter every after user enters correct move
+                //Increasing counter every time, after user enters correct move
                 counter++;
 
                 //Initializing "random" to shuffle computer's choice
                 Random random = new Random();
                 int computerRandomNumber = random.Next();
 
-                //Increasing user's chance to win by remove the third case: Scissors every second round
+                //Increasing user's chance to win by removing the third case: "Scissors", every second round
                 if (counter % 2 == 0)
                 {
                     computerRandomNumber = random.Next(1, 3);
@@ -92,7 +92,7 @@ namespace RockPaperScissirs
                 Console.WriteLine($"This computer chose {computerMove}.");
                 Console.ResetColor();
 
-                //Defining conditions of win or lose and increasing player's or computer's score depending of ending of round
+                //Defining conditions of win or lose and increasing player's or computer's score, depending of ending of round
                 //Displaying message for every possible ending of game with different colour
                 if ((playerMove == Rock && computerMove == Scissors) ||
                     (playerMove == Paper && computerMove == Rock) ||
@@ -124,7 +124,7 @@ namespace RockPaperScissirs
                 //Displaying current result
                 Console.WriteLine($"{userName}: {playerScore} Computer: {computerScore}");
 
-                //The user has to decide to play again or to quit the game
+                //The user has to decide: to play again or to quit the game
                 Console.WriteLine("Type [yes] to Play Again or [no] to quit, then press ENTER: ");
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -133,7 +133,7 @@ namespace RockPaperScissirs
 
                 Console.ForegroundColor = ConsoleColor.White;
 
-                //If user choose to continue the game the program restarts and displays message, else stops and again displays message
+                //If user choose to continue the game the program restarts and displays a message, else stops and again displays a different message
                 if (userChoice == "yes" || userChoice == "Yes" || userChoice == "Y" || userChoice == "y")
                 {
                     Console.Write("Choose [r]ock, [p]aper or [s]cissors, then press ENTER: ");
