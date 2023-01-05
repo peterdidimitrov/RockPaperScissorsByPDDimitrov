@@ -93,7 +93,7 @@ namespace RockPaperScissirs
                 Console.ResetColor();
 
                 //Defining conditions of win or lose and increasing player's or computer's score, depending of ending of round
-                //Displaying message for every possible ending of game with different colour
+                //Displaying message for every possible ending of game with different color
                 if ((playerMove == Rock && computerMove == Scissors) ||
                     (playerMove == Paper && computerMove == Rock) ||
                     (playerMove == Scissors && computerMove == Paper))
