@@ -6,7 +6,7 @@ namespace RockPaperScissirs
     {
         static void Main(string[] args)
         {
-            //Initialising Rock, Paper and Scissors
+            //Initialize Rock, Paper and Scissors
             const string Rock = "Rock";
             const string Paper = "Paper";
             const string Scissors = "Scissors";
@@ -17,14 +17,14 @@ namespace RockPaperScissirs
 
             string userName = Console.ReadLine();
 
-            //the user is choosing between Rock, Paper or Scissors
+            //The user is choosing between Rock, Paper or Scissors
             Console.Write("Choose [r]ock, [p]aper or [s]cissors, then press ENTER: ");
 
-            //Initialising player's score and computer's score
+            //Initialize player's score and computer's score
             int playerScore = 0;
             int computerScore = 0;
 
-            //Initializing counter, which helps for increasing user's chance to win
+            //Initialize counter, which helps for increasing user's chance to win
             int counter = 0;
 
             while (true)
